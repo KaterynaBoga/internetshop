@@ -1,0 +1,25 @@
+<style>
+
+    a {
+        margin: 25px;
+        font-family: Arial;
+    }
+    h2 {
+        margin: 25px;
+        font-family: Arial;
+    }
+    div {
+        margin: 25px;
+        font-family: Arial;
+    }
+</style>
+<h2>About</h2>
+
+<a href="{{ notebooksUrl }}"> Notebooks </a>
+<a href="{{ path('category_show', {'slug': 'tvs', 'page':5 }) }}"> TVs </a>
+<a href="{{ url('category_show', {'slug': 'media'}) }}"> Media centers</a>
+
+
+<div>
+Last visited category: {{ lastCategory }}
+</div>
