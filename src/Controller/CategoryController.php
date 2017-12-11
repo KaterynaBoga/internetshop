@@ -18,24 +18,24 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class CategoryController extends Controller
 {
     /**
-     * @Route("/category/{slug}/{page}",
+     * @Route("/category/{id}/{page}",
      *     name="category_show",
      *     requirements={"page": "\d+"}
      *     )
      *
-     * @param $slug
+     * @param $id
      * @param $page
      * @param $session
      *
      * @return Response
      */
-    public function show($slug, $page = 1, SessionInterface $session,
+    public function show($id, $page = 1, SessionInterface $session,
                          Request $request)
     {
-        $session->set('lastVisitedCategory', $slug);
+        $session->set('lastVisitedCategory', $id);
         $param = $request->query->get('param');
 
-        return $this->render('category/show.html.twig', ['slug'=>$slug, 'page'=>$page, 'param' => $param]);
+        return $this->render('category/show.html.twig', ['id'=>$id, 'page'=>$page, 'param' => $param]);
 
     }
 
@@ -46,7 +46,7 @@ class CategoryController extends Controller
     {
         $this->addFlash('notice', 'Successfuly added!!!');
         $lastCategory = $session->get('lastVisitedCategory');
-        return $this->redirectToRoute('category_show', ['slug' => $lastCategory]);
+        return $this->redirectToRoute('category_show', ['id' => $lastCategory]);
     }
     /**
      * @Route("download", name="category_download")
