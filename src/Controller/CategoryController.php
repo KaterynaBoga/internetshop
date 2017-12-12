@@ -29,13 +29,13 @@ class CategoryController extends Controller
      *
      * @return Response
      */
-    public function show($id, $page = 1, SessionInterface $session,
+    public function show($id, $name = 1, SessionInterface $session,
                          Request $request)
     {
         $session->set('lastVisitedCategory', $id);
         $param = $request->query->get('param');
 
-        return $this->render('category/show.html.twig', ['id'=>$id, 'page'=>$page, 'param' => $param]);
+        return $this->render('category/show.html.twig', ['id'=>$id, 'name'=>$name, 'param' => $param]);
 
     }
 
