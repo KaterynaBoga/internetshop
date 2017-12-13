@@ -1,6 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
 {% for product in products %}
 {{ product.name }} <br>
 Price: {{ product.price }}<br><br>
 {{ product.description }}
 <hr>
 {% endfor %}
+{% endblock %}

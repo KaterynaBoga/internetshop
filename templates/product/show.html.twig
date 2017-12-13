@@ -1,3 +1,13 @@
-<h1>Product Catalog</h1>
+{% extends 'base.html.twig' %}
 
-{{ category.name }} <br>
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+{% block body %}
+<h1>Описание товара {{ product.name }}</h1>
+
+{{ product.name }} <br>
+    {{ product.price }} <br>
+    {{ product.description }} <br>
+{% endblock %}

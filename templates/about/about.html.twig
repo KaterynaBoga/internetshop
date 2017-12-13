@@ -1,3 +1,4 @@
+{% extends 'base.html.twig' %}
 <style>
 
     a {
@@ -13,13 +14,19 @@
         font-family: Arial;
     }
 </style>
+{% block title %}
+    О Компании
+{% endblock %}
+
+{% block body %}
 <h2>About</h2>
 
-<a href="{{ notebooksUrl }}"> Notebooks </a>
-<a href="{{ path('category_show', {'slug': 'tvs', 'page':5 }) }}"> TVs </a>
-<a href="{{ url('category_show', {'slug': 'media'}) }}"> Media centers</a>
+    <a href="{{ notebooksUrl }}"> Notebooks </a>
+    <a href="{{ path('category_show', {'slug': 'tvs', 'page':5 }) }}"> TVs </a>
+    <a href="{{ url('category_show', {'slug': 'media'}) }}"> Media centers</a>
 
 
-<div>
-Last visited category: {{ lastCategory }}
-</div>
+    <div>
+    Last visited category: {{ lastCategory }}
+    </div>
+{% endblock %}
