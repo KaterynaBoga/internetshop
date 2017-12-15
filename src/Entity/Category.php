@@ -41,6 +41,22 @@ class Category
      */
     private $products;
 
+    /**
+     * @var Category
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="subcategories" )
+     * @ORM\JoinColumn(name="parent_id", onDelete="CASCADE")
+     *
+     */
+    private $parent;
+
+    /**
+     * @var Category[]ArrayCollection;
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Category", mappedBy="parent")
+     */
+    private $subcategories;
+
     public function getId()
     {
         return $this->id;
