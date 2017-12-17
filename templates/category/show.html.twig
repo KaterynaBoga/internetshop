@@ -5,22 +5,37 @@
 {% endblock %}
 
 {% block body %}
-{% for message in app.flashes('notice') %}
-    <p>{{ message }}</p>
-{% endfor %}
+    {% for message in app.flashes('notice') %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    <div class="col-xs-12 col-sm-4 col-md-3">
+        Категория товаров: {{ category.name }}<br>
+        Page: {{ page }}<br>
+        Наименования товаров:
+        {% for product in category.products %}
+            <div class="list-group" style="margin-bottom: 3px">
+                <a href="{{ path('product_show', {'id':product.id}) }}" class="list-group-item">
+                    {{ product.name }} - {{ product.price|number_format(2, '.', ' ') }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-3">
+            <div class="thumbnail">
+                <img src="http://ukrnichrom.com.ua/assets/cache/images/tovary/x20h80-400x-4a9.jpg" alt="...">
+                <div class="caption">
+                    <h3>Х20Н80</h3>
+                    <p>Прецизионный сплав</p>
+                    <p>
+                        <a href="{{ path('category_message') }}" class="btn btn-primary" role="button">Добавить в корзину</a>
+                        <a href="#" class="btn btn-default" role="button">Описание</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
-Категория товаров: {{ category.name }}<br>
-Page: {{ page }}<br>
 
-Наименования товаров:
-{% for product in category.products %}
-    <hr>
-<a href="{{ path('product_show', {'id':product.id}) }}">
-    {{ product.name }} - {{ product.price|number_format(2, '.', ' ') }}
-</a>
-<hr>
-{% endfor %}
-
-<a href="{{ path('category_message') }}">Add to cart</a>
 {% endblock %}

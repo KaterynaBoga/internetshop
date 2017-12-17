@@ -5,9 +5,18 @@
 {% endblock %}
 
 {% block body %}
-<h1>Описание товара {{ product.name }}</h1>
-
-{{ product.name }} <br>
-    {{ product.price }} <br>
-    {{ product.description }} <br>
+    <div class="container">
+        <h1 style="color: #003989">Информация о продукте {{ product.name }}</h1>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="http://ukrnichrom.com.ua/assets/cache/images/tovary/x20h80-400x-4a9.jpg" alt="...">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8">
+            <p>Наименование материала: {{ product.name }}</p>
+            <p>Цена: {{ product.price }}</p>
+            <p style="text-align: justify">Описание: {{ product.description }}</p>
+            <p><a class="btn btn-primary btn-lg" role="button">Перейти к каталогу товаров</a></p>
+        </div>
+    </div>
 {% endblock %}

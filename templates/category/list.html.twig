@@ -5,8 +5,34 @@
 {% endblock %}
 
 {% block body %}
-{% for category in categories %}
-<a href="{{ path('category_show', {'slug':category.slug}) }}">{{ category.name }}</a>
-    <hr>
-{% endfor %}
+    <div class="col-xs-12 col-sm-4 col-md-3">
+        {% for category in categories %}
+            <div class="list-group" style="margin-bottom: 3px">
+                <a href="{{ path('category_show', {'slug':category.slug}) }}"
+                   class="list-group-item">{{ category.name }}</a>
+            </div>
+        {% endfor %}
+    </div>
+        <div class="col-xs-12 col-sm-3 col-md-3">
+            <div class="thumbnail">
+                <img src="http://ukrnichrom.com.ua/assets/cache/images/tovary/x20h80-400x-4a9.jpg" alt="...">
+                <div class="caption">
+                    <h3>Х20Н80</h3>
+                    <p>Прецизионный сплав</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Добавить в корзину</a> <a href="#" class="btn btn-default"
+                                                                                       role="button">Описание</a></p>
+                </div>
+            </div>
+        </div>
+    <div class="col-xs-12 col-sm-3 col-md-3">
+        <div class="thumbnail">
+            <img src="http://ukrnichrom.com.ua/assets/cache/images/tovary/x20h80-400x-4a9.jpg" alt="...">
+            <div class="caption">
+                <h3>Х20Н80</h3>
+                <p>Прецизионный сплав</p>
+                <p><a href="#" class="btn btn-primary" role="button">Добавить в корзину</a> <a href="#" class="btn btn-default"
+                                                                                   role="button">Описание</a></p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
