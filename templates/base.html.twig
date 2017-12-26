@@ -32,34 +32,21 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            {{ knp_menu_render('main')  }}
+
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Акционные товары<span class="sr-only">(current)</span></a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Каталог товаров<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Прецизионные стали</a></li>
-                        <li><a href="#">Специальные стали и сплавы</a></li>
-                        <li><a href="#">Медноникелевые сплавы</a></li>
-                        <li><a href="#">Цветные металлы</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Нержавеющий прокат</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Ферросплавы</a></li>
-                    </ul>
-                </li>
+                <li><a href="#">Акционные товары<span class="sr-only">(current)</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">О Компании<span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        <li><a href="#">Информация</a></li>
                         <li><a href="#">Сертификаты</a></li>
                         <li><a href="#">Поставщики продукции</a></li>
                         <li><a href="#">Наши клиенты</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Контакты</a></li>
-                <li><a href="#">Новости</a></li>
-
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
@@ -81,7 +68,57 @@
                         <li><a href="#">Все филиалы</a></li>
                     </ul>
                 </li>
-                <li><a href="#"><span class="glyphicon glyphicons-shopping-cart"></span>Ваша корзина</a></li>
+
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <li>
+                        <p class="navbar-text">{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="#"  data-toggle="modal" data-target="#loginForm">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        <!-- Modal -->
+                        <form action="{{ path("fos_user_security_check") }}" method="post">
+                        <div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                                            <input type="text" id="username" class="form-control"name="_username" required="required" autocomplete="username" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                                            <input type="password" id="password" class="form-control" name="_password" required="required" autocomplete="current-password" />
+                                        </div>
+                                        <div class="checkbox">
+                                            <label for="remember_me">
+                                                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                                {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                                            </label>
+                                            </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                                        <button type="submit" class="btn btn-primary">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </li>
+                    {% endif %}
+
+                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
