@@ -75,7 +75,7 @@ class Category
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName(): ? string
     {
         return $this->name;
     }
@@ -93,7 +93,7 @@ class Category
     /**
      * @return string
      */
-    public function getSlug(): string
+    public function getSlug(): ? string
     {
         return $this->slug;
     }
@@ -138,6 +138,29 @@ class Category
     {
         $this->products->removeElement($product);
 
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName() ?: '';
+    }
+
+    /**
+     * @return Category
+     */
+    public function getParent(): ? Category
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param Category $parent
+     * @return Category
+     */
+    public function setParent(Category $parent): Category
+    {
+        $this->parent = $parent;
         return $this;
     }
 

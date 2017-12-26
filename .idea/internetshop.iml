@@ -35,8 +35,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/core-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/datagrid-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sonata-project/exporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/asset" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/config" />
@@ -58,6 +60,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/intl" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/maker-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/orm-pack" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
@@ -122,8 +125,10 @@
           <root url="file://$MODULE_DIR$/vendor/sonata-project/cache" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/core-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/datagrid-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/exporter" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/asset" />
           <root url="file://$MODULE_DIR$/vendor/symfony/cache" />
           <root url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
           <root url="file://$MODULE_DIR$/vendor/symfony/config" />
@@ -145,6 +150,7 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/intl" />
           <root url="file://$MODULE_DIR$/vendor/symfony/maker-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/orm-pack" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
@@ -205,8 +211,10 @@
           <root url="file://$MODULE_DIR$/vendor/sonata-project/cache" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/core-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/datagrid-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/sonata-project/doctrine-orm-admin-bundle" />
           <root url="file://$MODULE_DIR$/vendor/sonata-project/exporter" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/asset" />
           <root url="file://$MODULE_DIR$/vendor/symfony/cache" />
           <root url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
           <root url="file://$MODULE_DIR$/vendor/symfony/config" />
@@ -228,6 +236,7 @@
           <root url="file://$MODULE_DIR$/vendor/symfony/intl" />
           <root url="file://$MODULE_DIR$/vendor/symfony/maker-bundle" />
           <root url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/orm-pack" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
           <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php72" />
