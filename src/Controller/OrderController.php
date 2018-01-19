@@ -67,6 +67,7 @@ class OrderController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
          $this->sendEmails($order, $mailer);
          $orders->makeOrder($order);
+         $this->addFlash($order->getId(), 'last_order');
 
          return $this->redirectToRoute('order_success');
         }
@@ -80,9 +81,9 @@ class OrderController extends Controller
     /**
      * @Route("order/success", name="order_success")
      */
-    public function successOrder(Orders $orders)
+    public function successOrder()
     {
-        return $this->render('order/success.html.twig', ['order' => $orders->getCurrentOrder()]);
+        return $this->render('order/success.html.twig');
     }
 
     public function sendEmails(Order $order, \Swift_Mailer $mailer)
