@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Оформление заказа</h1>
+
+        {% include 'order/items.html.twig' with {'order': order} %}
+
+        <h2>Информация о получателе</h2>
+        <div class="col-xs-12, col-md-6">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-default"> Отправить </button>
+        {{ form_end(form) }}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

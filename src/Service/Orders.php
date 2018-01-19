@@ -40,7 +40,7 @@ class Orders
 
         $order = $id ? $this->em->find(Order::class, $id) : null;
 
-        if (!$order) {
+        if (!$order || $order->getStatus() != Order::STATUS_DRAFT) {
             $order = new Order();
             $this->em->persist($order);
             $this->em->flush();
@@ -85,4 +85,9 @@ class Orders
 
     }
 
+    public function makeOrder(Order $order)
+    {
+        $order->setStatus(Order::STATUS_ORDERED);
+        $this->em->flush();
+    }
 }

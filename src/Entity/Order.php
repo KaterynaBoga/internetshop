@@ -11,6 +11,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -58,20 +59,33 @@ class Order
 
     /**
      * @var string
+     * @Assert\NotBlank(groups={"comleteOrder"})
      *
-     * @ORM\Column(type="string", length=250)
+     * @ORM\Column(type="string", length=250, options={"default": ""})
+     */
+    private $customerName;
+
+    /**
+     * @var string
+     * @Assert\NotBlank(groups={"comleteOrder"})
+     * @Assert\Regex("/^\+?[-\(\)\d]+$/", groups={"completeOrder"})
+     * @Assert\Length(min=5, minMessage="Введите номер телефона с кодом города или оператора", groups={"completeOrder"})
+     *
+     * @ORM\Column(type="string", length=250, options={"default": ""})
      */
     private $phone;
 
     /**
      * @var string
+     * @Assert\NotBlank(groups={"comleteOrder"})
      *
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string", nullable=true, options={"default": ""})
      */
     private $email;
 
     /**
      * @var string|null
+     * @Assert\NotBlank(groups={"comleteOrder"})
      *
      * @ORM\Column(type="text", nullable=true)
      */
@@ -111,6 +125,7 @@ class Order
         $this->createdAt = new \DateTime();
         $this->count = 0;
         $this->amount = 0;
+        $this->customerName = '';
         $this->phone = '';
         $this->email = '';
         $this->status = self::STATUS_DRAFT;
@@ -342,6 +357,24 @@ class Order
             $this->count += $item->getCount();
             $this->amount += $item->getAmount();
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getCustomerName(): string
+    {
+        return $this->customerName;
+    }
+
+    /**
+     * @param string $customerName
+     * @return Order
+     */
+    public function setCustomerName(string $customerName): Order
+    {
+        $this->customerName = $customerName;
+        return $this;
     }
 
 }
