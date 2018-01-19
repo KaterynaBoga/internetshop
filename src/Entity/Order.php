@@ -9,6 +9,7 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -97,7 +98,7 @@ class Order
     private $isPaid;
 
     /**
-     * @var OrderItem[]|ArrayCollection
+     * @var OrderItem[]|Collection
      *
      * @ORM\OneToMany(targetEntity="App\Entity\OrderItem", mappedBy="order")
      */
@@ -300,7 +301,7 @@ class Order
     /**
      * @return OrderItem[]|ArrayCollection
      */
-    public function getItems(): ArrayCollection
+    public function getItems(): Collection
     {
         return $this->items;
     }
@@ -314,6 +315,7 @@ class Order
     {
         $this->items->add($item);
         $item->setOrder($this);
+        $this->recalculeteItems();
 
         return $this;
     }
@@ -326,8 +328,20 @@ class Order
     public function removeItem(OrderItem $item)
     {
         $this->items->removeElement($item);
+        $this->recalculeteItems();
 
         return $this;
+    }
+
+    public function recalculeteItems()
+    {
+        $this->count = 0;
+        $this->amount = 0;
+
+        foreach ($this->items as $item) {
+            $this->count += $item->getCount();
+            $this->amount += $item->getAmount();
+        }
     }
 
 }

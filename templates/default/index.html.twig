@@ -6,16 +6,6 @@
 
 {% block body %}
     <div class="row">
-        {% for product in products %}
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 product">
-                {% if product.imageName %}
-                <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('products_list') }}" class="img-thumbnail img-responsive center-block">
-                {% endif %}
-                    <p>
-                    <span class="price">{{ product.price|number_format(2, ',', ' ') }}</span>
-                    {{ product.name }}
-                </p>
-            </div>
-        {% endfor %}
+        {% include 'partials/products.html.twig' with {'products': products} %}
     </div>
 {% endblock %}

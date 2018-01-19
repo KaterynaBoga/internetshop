@@ -16,6 +16,7 @@
 <body>
 <a href=""><img src="http://ukrnichrom.com.ua/templates/images/logo.png"
                width="157" height="42" style="margin: 15px" alt="Укрнихром"></a>
+<a href="{{ path ('fos_user_registration_register') }}">Зарегистрироваться</a>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -40,7 +41,8 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">О Компании<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Информация</a></li>
+                        <li><a href="{{ path('about_show') }}">Информация</a></li>
+                        <li><a href="#">Наши филиалы</a></li>
                         <li><a href="#">Сертификаты</a></li>
                         <li><a href="#">Поставщики продукции</a></li>
                         <li><a href="#">Наши клиенты</a></li>
@@ -56,18 +58,6 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Обратный звонок</a></li>
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Наши филиалы<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Киев</a></li>
-                        <li><a href="#">Харьков</a></li>
-                        <li><a href="#">Запорожье</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Все филиалы</a></li>
-                    </ul>
-                </li>
 
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                     <li>
@@ -118,7 +108,16 @@
                     </li>
                     {% endif %}
 
-                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                {% if ordersService.currentOrder.count %}
+                <li>
+                      <a href="{{ path('order_cart') }}">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        <span class="badge">{{ ordersService.currentOrder.count }}</span>
+                        {{ ordersService.currentOrder.amount }} грн.
+                      </a>
+                </li>
+                {% endif %}
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

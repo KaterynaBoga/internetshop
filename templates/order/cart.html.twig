@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Корзина {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h1>Корзина</h1>
+
+    <table class="table tabk=le-striped">
+        <tr>
+            <th>Товар</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Стоимость</th>
+        </tr>
+
+        {# @var item \App\Entity\OrderItem #}
+        {% for item in order.items %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.product.price }}</td>
+                <td>{{ item.count }}</td>
+                <td>{{ item.amount }}</td>
+                <td><a href="{{ path('order_remove_item', {'id':item.id}) }}">
+                    <span class="glyphicon glyficon-remove"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+
+            <tr>
+                <td  colspan="2">Всего </td>
+                <td>{{ order.count }}</td>
+                <td>{{ order.amount }} </td>
+            </tr>
+    </table>
+{% endblock %}
