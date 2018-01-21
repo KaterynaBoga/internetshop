@@ -1,5 +1,5 @@
 <?php
-// src/AppBundle/Admin/CategoryAdmin.php
+// src/AppBundle/Admin/OrderAdmin.php
 
 namespace App\Admin;
 
@@ -14,26 +14,49 @@ class OrderAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('category')
-            ->add('name')
-            ->add('description')
-            ->add('price');
+            ->add('id')
+            ->add('user')
+            ->add('createdAt')
+            ->add('count')
+            ->add('amount')
+            ->add('customerName')
+            ->add('phone')
+            ->add('email')
+            ->add('addres')
+            ->add('status')
+            ->add('isPaid');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('category')
-            ->add('name')
-            ->add('description')
-            ->add('price');
+            ->add('id')
+            ->add('user')
+            ->add('createdAt')
+            ->add('count')
+            ->add('amount')
+            ->add('customerName')
+            ->add('phone')
+            ->add('email')
+            ->add('addres')
+            ->add('status')
+            ->add('isPaid');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('name')
-            ->addIdentifier('status');
+            ->add('id')
+            ->add('user')
+            ->add('createdAt')
+            ->add('count')
+            ->add('amount')
+            ->add('customerName')
+            ->add('phone')
+            ->add('email')
+            ->add('addres')
+            ->add('status')
+            ->add('isPaid');
 
     }
 }
