@@ -6,6 +6,23 @@ Is Top: Топ
 Description: Описание
 Product List: Список товаров
 Category List: Категории
-Order List: Корзина
+Order List: Заказ
+User: Пользователь
+Created At: Дата создания
+Count: Количество
+Amount: Сумма
+Customer Name: Имя покупателя
+Phone: Телефон
+Addres: Адрес
+Status: Статус
+Status Label: Статус заказа
+Is Paid: Оплачено?
+Edit Order: Заказ
+Manage Items: Заказанные товары
 Parent: Направление товаров
 Slug: Слова
+draft: Черновик
+ordered: Заказан
+sent: Отпрравлен
+received: Доставлен
+completed: Завершен

@@ -26,4 +26,13 @@ services:
         arguments: [~, App\Entity\Order, ~]
         tags:
             - { name: sonata.admin, group: Catalogue, manager_type: orm, label: Order List }
+        calls:
+            - [addChild, ['@admin.order_item']]
         public: true
+
+    admin.order_item:
+            class: App\Admin\OrderItemAdmin
+            arguments: [~, App\Entity\OrderItem, ~]
+            tags:
+                - { name: sonata.admin, group: Catalogue, manager_type: orm, show_in_dashboard: false }
+            public: true
